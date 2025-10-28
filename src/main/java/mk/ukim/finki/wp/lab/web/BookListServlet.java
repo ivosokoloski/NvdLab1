@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import mk.ukim.finki.wp.lab.model.Book;
 import mk.ukim.finki.wp.lab.service.BookService;
+import mk.ukim.finki.wp.lab.service.BookServiceImpl;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.web.IWebExchange;
 import org.thymeleaf.web.servlet.JakartaServletWebApplication;
@@ -16,10 +17,11 @@ import java.util.List;
 
 @WebServlet(name = "BookListServlet" , urlPatterns = "/")
 public class BookListServlet extends HttpServlet {
-    private final BookService bookService;
+    private BookServiceImpl bookService;
 
-    public BookListServlet(BookService bookService) {
-        this.bookService = bookService;
+    @Override
+    public void init() throws ServletException {
+        this.bookService = new BookService();
     }
 
     @Override
