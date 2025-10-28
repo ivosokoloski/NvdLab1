@@ -16,7 +16,12 @@ import java.util.List;
 
 @WebServlet(name = "BookListServlet" , urlPatterns = "/")
 public class BookListServlet extends HttpServlet {
-    private BookService bookService;
+    private final BookService bookService;
+
+    public BookListServlet(BookService bookService) {
+        this.bookService = bookService;
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         IWebExchange webExchange = JakartaServletWebApplication
