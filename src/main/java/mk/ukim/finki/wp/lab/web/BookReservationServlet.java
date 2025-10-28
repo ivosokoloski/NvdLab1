@@ -12,19 +12,4 @@ import java.io.IOException;
 
 @WebServlet(name = "bookReservation",urlPatterns = "/bookReservation")
 public class BookReservationServlet extends HttpServlet {
-    private final BookReservationService bookReservationService;
-
-    public BookReservationServlet(BookReservationService bookReservationService) {
-        this.bookReservationService = bookReservationService;
-    }
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-
-        // 🔹 1. Ги читаме податоците од формата
-        String bookTitle = req.getParameter("bookTitle");
-        int numCopies = Integer.parseInt(req.getParameter("numCopies"));
-        String readerName = req.getParameter("readerName");
-        String readerAddress = req.getParameter("readerAddress");
-        
-}
 }
